@@ -1,0 +1,6 @@
+[book]
+authors = ["Shankar Rao Mata"]
+language = "en"
+multilingual = false
+src = "src"
+title = "impactprotocol"
