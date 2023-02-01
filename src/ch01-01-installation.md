@@ -50,9 +50,9 @@ Make sure WSL2 is running:
     ```bash
     cargo build --release
     ```
-    <aside>
-     **This will take some time to build depending upon your system configuration.**
-    </aside>
+
+     This will take some time to build the binary depending upon your system configuration.
+
 
 4. Once the build is done in the above step, run the below command to generate the mining key
 
@@ -86,4 +86,16 @@ Make sure WSL2 is running:
     This will ask for a keystore password, enter any random password
 
 7. Now you should begin to mine. You are running an Impact Protocol test net node, please check in the console and you will be seeing the blocks getting finalized
+
+8. You can check your node running by going into the link below
+
+    [Polkadotjs](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9945#/explorer). If you dont see anything loading check your port address in this case it is ```9945```, you may have some other port configured, check and replace accordingly.
+   
+    You should see something like shown below
+    <img src="./img/polkadot_node_dashboard.png">
+
+9. Now you need to install an extension: https://polkadot.js.org/extension on Google Chrome or  Firefox. Import account with pre-existing seed that you generated in step 4. Enter your public key and set a password. Its shown below
+
+    <img src="./img/importing_seeds_to_polkadotjs.png">
+
 

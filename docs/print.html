@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="ch01-02-validation-nominating.html"><strong aria-hidden="true">1.2.</strong> Proof-of-Stake</a></li><li class="chapter-item expanded "><a href="ch01-03-running-as-validator.html"><strong aria-hidden="true">1.3.</strong> Running as validator/nominator</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -193,9 +193,7 @@ rustup showrustup +nightly show
 <p>Build the project:</p>
 <pre><code class="language-bash">cargo build --release
 </code></pre>
-<aside>
-  **This will take some time to build depending upon your system configuration.**
- </aside>
+<p>This will take some time to build the binary depending upon your system configuration.</p>
 </li>
 <li>
 <p>Once the build is done in the above step, run the below command to generate the mining key</p>
@@ -227,6 +225,89 @@ rustup showrustup +nightly show
 <li>
 <p>Now you should begin to mine. You are running an Impact Protocol test net node, please check in the console and you will be seeing the blocks getting finalized</p>
 </li>
+<li>
+<p>You can check your node running by going into the link below</p>
+<p><a href="https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9945#/explorer">Polkadotjs</a>. If you dont see anything loading check your port address in this case it is <code>9945</code>, you may have some other port configured, check and replace accordingly.</p>
+<p>You should see something like shown below
+<img src="./img/polkadot_node_dashboard.png"></p>
+</li>
+<li>
+<p>Now you need to install an extension: https://polkadot.js.org/extension on Google Chrome or  Firefox. Import account with pre-existing seed that you generated in step 4. Enter your public key and set a password. Its shown below</p>
+<img src="./img/importing_seeds_to_polkadotjs.png">
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="validating-and-staking-in-substrate-chains"><a class="header" href="#validating-and-staking-in-substrate-chains">Validating and Staking in Substrate Chains</a></h1>
+<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
+<p>Staking is a process of holding or locking up a certain amount of tokens in a blockchain network to support the network and validate transactions. By staking, a validator can earn rewards and maintain the stability of the network.</p>
+<p>Substrate is a framework for building blockchain applications and networks, and it allows for easy implementation of staking.</p>
+<h2 id="validating-in-substrate"><a class="header" href="#validating-in-substrate">Validating in Substrate</a></h2>
+<p>To become a validator in a Substrate-based network, you need to have a certain amount of tokens in your wallet and be willing to lock them up for a certain period of time.</p>
+<p>Once you have the required tokens, you can follow these steps to become a validator:</p>
+<ol>
+<li>
+<p>Connect to the network using a Substrate node.</p>
+</li>
+<li>
+<p>Create a stash account and a controller account. The stash account is where your staked tokens will be held, and the controller account is used to manage the stash account.</p>
+</li>
+<li>
+<p>Bond your tokens by transferring them from your wallet to the stash account.</p>
+</li>
+<li>
+<p>Set up your validator preferences, such as commission rate and minimum self-bond amount.</p>
+</li>
+<li>
+<p>Submit a nomination transaction to nominate yourself as a candidate for validation.</p>
+</li>
+<li>
+<p>Wait for the next election round to start and be elected as a validator.</p>
+</li>
+</ol>
+<h2 id="staking-rewards"><a class="header" href="#staking-rewards">Staking Rewards</a></h2>
+<p>As a validator, you can earn rewards for successfully validating blocks and adding them to the network. The amount of rewards you can earn depends on several factors, such as the total amount of tokens staked in the network, your commission rate, and the network's reward policy.</p>
+<h2 id="risks-and-challenges"><a class="header" href="#risks-and-challenges">Risks and Challenges</a></h2>
+<p>While staking can be a lucrative opportunity, it also comes with certain risks and challenges. As a validator, you need to be prepared to face the following risks:</p>
+<ul>
+<li>
+<p>Slashing: If you are found to be violating the network's consensus rules, your staked tokens may be partially or fully slashed.</p>
+</li>
+<li>
+<p>Liveness: If your validator node is down, you may miss the opportunity to validate blocks and earn rewards.</p>
+</li>
+<li>
+<p>Competition: With the increasing popularity of staking, the competition among validators is becoming more intense, and it may be harder to earn rewards in highly competitive networks.</p>
+</li>
+</ul>
+<p>To minimize these risks, it is important to choose a reliable network and take the necessary precautions, such as using high-availability infrastructure and keeping your validator node running 24/7.</p>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>Staking in Substrate-based networks can be a rewarding opportunity for those who are willing to hold and lock up their tokens for a certain period of time. However, it also comes with certain risks and challenges, and it is important to be prepared and make informed decisions before becoming a validator.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="running-as-a-validator"><a class="header" href="#running-as-a-validator">Running as a validator</a></h1>
+<h3 id="setup-your-validator-node"><a class="header" href="#setup-your-validator-node">Setup your validator node</a></h3>
+<ol>
+<li>
+<p>Running the node - this we have already done in the installation step and have an account created with the existing seed</p>
+</li>
+<li>
+<p>Make sure to generate the keys that is needed while running as validator, follow the step below to generate the keys, go to bash or any shell and run the command below</p>
+<pre><code class="language-bash">curl -H &quot;Content-Type: application/json&quot; -d'{&quot;id&quot;:1, &quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;: &quot;author_rotateKeys&quot;, &quot;params&quot;:[ ]}' http://localhost:9933
+</code></pre>
+<p>Copy the keys from the output of the above command and save it.</p>
+</li>
+<li>
+<p>Get the minimum required stake of tokens for testnet please request here <a href="https://signal.group/#CjQKICa9F2r95FQoGhYjc02lwNgKZCOfDEZngfoWgr_ZkHc4EhAOywghKv4DebEkPsicSCFb">Testnet_Group</a></p>
+</li>
+<li>
+<p>Create another account as the controller account to manage the stash account. Go to the polkadotjs chrome extension and make create account, and make sure you save the seed phrase in a secure place. Fund the controller account as well using the above group</p>
+<img src="./img/importing_seeds_to_polkadotjs.png">
+</li>
+<li>
+<p>Head over to the <a href="https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9945#/explorer">polkadot explorer</a> and click the staking button under the Network tab as shown below</p>
+<img src="./img/polkadot_js_staking.png">
+</li>
+<li>
+<p>Once in staking go to accounts and you will see the nominator and validator button as shown below, first lets discuss about validator
+<img src="./img/polkadot_js_validation.png"></p>
+</li>
 </ol>
 
                     </main>
@@ -246,22 +327,6 @@ rustup showrustup +nightly show
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html" class="active"><strong aria-hidden="true">1.1.</strong> Installation</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html" class="active"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="ch01-02-validation-nominating.html"><strong aria-hidden="true">1.2.</strong> Proof-of-Stake</a></li><li class="chapter-item expanded "><a href="ch01-03-running-as-validator.html"><strong aria-hidden="true">1.3.</strong> Running as validator/nominator</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -188,9 +188,7 @@ rustup showrustup +nightly show
 <p>Build the project:</p>
 <pre><code class="language-bash">cargo build --release
 </code></pre>
-<aside>
-  **This will take some time to build depending upon your system configuration.**
- </aside>
+<p>This will take some time to build the binary depending upon your system configuration.</p>
 </li>
 <li>
 <p>Once the build is done in the above step, run the below command to generate the mining key</p>
@@ -222,6 +220,16 @@ rustup showrustup +nightly show
 <li>
 <p>Now you should begin to mine. You are running an Impact Protocol test net node, please check in the console and you will be seeing the blocks getting finalized</p>
 </li>
+<li>
+<p>You can check your node running by going into the link below</p>
+<p><a href="https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9945#/explorer">Polkadotjs</a>. If you dont see anything loading check your port address in this case it is <code>9945</code>, you may have some other port configured, check and replace accordingly.</p>
+<p>You should see something like shown below
+<img src="./img/polkadot_node_dashboard.png"></p>
+</li>
+<li>
+<p>Now you need to install an extension: https://polkadot.js.org/extension on Google Chrome or  Firefox. Import account with pre-existing seed that you generated in step 4. Enter your public key and set a password. Its shown below</p>
+<img src="./img/importing_seeds_to_polkadotjs.png">
+</li>
 </ol>
 
                     </main>
@@ -232,6 +240,9 @@ rustup showrustup +nightly show
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next" href="ch01-02-validation-nominating.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -243,26 +254,13 @@ rustup showrustup +nightly show
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next" href="ch01-02-validation-nominating.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
