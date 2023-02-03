@@ -9,21 +9,17 @@
 
    ### Install mdbook   
 
-    ```bash
-        cargo install mdbook
-    ```
+      - cargo install mdbook
 
    ### Generate the static docs locally 
 
     Add/Edit the document and test it locally. Create PR to be merged in the main branch
-    ```bash
-        mdbook build
-    ```
+
+      - mdbook build
 
    ### Run locally and check the book 
 
-    ```bash
-        mdbook serve
-    ```
-    Type ```localhost:3000``` in your browser and verify
+      - mdbook serve
+      
+    Type localhost:3000 in your browser and verify
 
