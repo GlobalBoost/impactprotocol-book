@@ -1,5 +1,11 @@
 ## Install Instructions
 
+### Minimum hardware requirements(recommended)
+
+   - RAM: 4GB RAM(or 8GB for better performance)
+   - CPU: 2Cores cpu
+   - Disk: 256GB SSD Disk
+
 ### If on Linux or Mac:
 
 1. follow instructions 1-10 from link below:

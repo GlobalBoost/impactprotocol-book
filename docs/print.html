@@ -147,6 +147,12 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
 <p>In this section,  we will explain how to run Impactprotocol and send confidential/anonymous transactions.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="install-instructions"><a class="header" href="#install-instructions">Install Instructions</a></h2>
+<h3 id="minimum-hardware-requirementsrecommended"><a class="header" href="#minimum-hardware-requirementsrecommended">Minimum hardware requirements(recommended)</a></h3>
+<ul>
+<li>RAM: 4GB RAM(or 8GB for better performance)</li>
+<li>CPU: 2Cores cpu</li>
+<li>Disk: 256GB SSD Disk</li>
+</ul>
 <h3 id="if-on-linux-or-mac"><a class="header" href="#if-on-linux-or-mac">If on Linux or Mac:</a></h3>
 <ol>
 <li>follow instructions 1-10 from link below:
@@ -342,6 +348,22 @@ Shown below </p>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
