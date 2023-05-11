@@ -33,6 +33,7 @@
 
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
@@ -70,10 +71,12 @@
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -81,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="ch01-02-validation-nominating.html"><strong aria-hidden="true">1.2.</strong> Proof-of-Stake</a></li><li class="chapter-item expanded "><a href="ch01-03-running-as-validator.html"><strong aria-hidden="true">1.3.</strong> Running as validator/nominator</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="ch01-02-funding-testnet-tokens.html"><strong aria-hidden="true">1.2.</strong> Funding Your Wallet</a></li><li class="chapter-item expanded "><a href="ch01-02-validation-nominating.html"><strong aria-hidden="true">1.3.</strong> Proof-of-Stake</a></li><li class="chapter-item expanded "><a href="ch01-03-running-as-validator.html"><strong aria-hidden="true">1.4.</strong> Running as validator/nominator</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -242,6 +245,49 @@ rustup showrustup +nightly show
 <img src="./img/importing_seeds_to_polkadotjs.png">
 </li>
 </ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="importing-ferdie-to-fund-your-wallet-using-testnet-tokens-using-polkadotjs"><a class="header" href="#importing-ferdie-to-fund-your-wallet-using-testnet-tokens-using-polkadotjs">Importing Ferdie to fund your wallet using Testnet tokens using Polkadot.js</a></h1>
+<p>To import a wallet into Polkadot.js using a seed phrase, you can follow these steps:</p>
+<ol>
+<li>Open the Polkadot.js web interface in your browser and click on the &quot;Add&quot; icon in the top right corner and click <code>import account from pre-existing seed</code> as shown below
+<br/><br/>
+<img src="./img/import_seed_menu.png">
+<br/><br/></li>
+<li>Enter the Ferdie 12 or 24-word seed phrase in the &quot;Mnemonic&quot; field as shown below
+<br/><br/>
+<img src="./img/add_seed_phrase.png">
+<br/><br/></li>
+<li>Enter a name for your account and select a password as shown below. The password will be used to encrypt your private key and protect it from unauthorized access.
+<br/><br/>
+<img src="./img/adding_name_and_password.png">
+<br/><br/></li>
+<li>Click add and you will see the account Ferdie added in the wallet list
+<br/><br/>
+<img src="./img/ferdie_added.png">
+<br/><br/></li>
+<li>Now you can transfer the testnet tokens from Ferdie to your wallet. Go to accounts, locate Ferdie and Click on the <code>Send</code> button. You will see the popup as shown below
+<br/><br/>
+<img src="./img/transfering_tokens.png">
+<br/><br/> </li>
+<li>Enter the address of the account you want to send funds to in the &quot;To&quot; field and the amount you want to send in the &quot;Amount&quot; field and click on the <code>Make Transfer</code> button and you will see the authorization popup as shown below
+<br/><br/>
+<img src="./img/authorize_transaction.png">
+<br/><br/></li>
+<li>Click the <code>Sign and Submit</code> button to authorize the transaction. You will see the popup as shown below for entering the password(Use the same password you used while adding Ferdie account to your wallet)
+<br/><br/>
+<img src="./img/enter_password_and_send.png">
+<br/><br/></li>
+<li>Enter the pass word and click the <code>Sign the transaction</code> button. You can see the notifcation of the transaction as shown below 
+<br/><br/>
+<img src="./img/transfer_pending_icon.png">
+<br/><br/></li>
+<li>Once the transaction is confirmed, you will see the notification in green color which you can verify in the explorer as shown below. 
+<br/><br/>
+<img src="./img/transfer_check_explorer.png">
+<br/><br/></li>
+<li>Once confirmed, you will see the updated balance in your wallet.</li>
+</ol>
+<h2 id="note"><a class="header" href="#note">NOTE</a></h2>
+<h4 id="do-not-use-the-ferdie-account-for-any-other-purpose-than-funding-your-wallet-the-ferdie-account-is-only-for-funding-your-wallet-and-should-not-be-used-for-valdating-or-nominating"><a class="header" href="#do-not-use-the-ferdie-account-for-any-other-purpose-than-funding-your-wallet-the-ferdie-account-is-only-for-funding-your-wallet-and-should-not-be-used-for-valdating-or-nominating">Do not use the Ferdie account for any other purpose than funding your wallet. The Ferdie account is only for funding your wallet and should not be used for valdating or nominating.</a></h4>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="validating-and-staking-in-substrate-chains"><a class="header" href="#validating-and-staking-in-substrate-chains">Validating and Staking in Substrate Chains</a></h1>
 <h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
 <p>Staking is a process of holding or locking up a certain amount of tokens in a blockchain network to support the network and validate transactions. By staking, a validator can earn rewards and maintain the stability of the network.</p>
@@ -388,5 +434,6 @@ Shown below </p>
         });
         </script>
 
+    </div>
     </body>
 </html>
